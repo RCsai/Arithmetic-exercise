@@ -1,5 +1,5 @@
 # Arithmetic-exercise
-研一算法作业
+研一算法作业1
 
 1.quickSort.java
 

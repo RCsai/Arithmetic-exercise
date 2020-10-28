@@ -1,12 +1,12 @@
-package è‡ªå­¦ç¬”è®°;
+package ×ÔÑ§±Ê¼Ç;
 
 
 public class binarySearch {
 	public static void main(String[] args){
 		search s=new search();
 		s.target=21;
-		System.out.println("ç›®æ ‡å€¼ï¼š"+Integer.toString(s.target));
-		s.getData();	
+		System.out.println("Ä¿±êÖµ£º"+s.target);
+		s.getData();
 		s.binarySearch(s.data, s.target);
 	}
 }
@@ -17,14 +17,15 @@ class search{
 	int NUM;
 	int target;
 	
-	//äº§ç”Ÿæµ‹è¯•æ•°æ®
+	//²úÉú²âÊÔÊı¾İ
 	public void getData(){
 		NUM=15;
 		data=new int[NUM];
 		for(int i=0;i<NUM;i++){
 			data[i]=i*2+2;
 		}
-		System.out.println("åˆå§‹æ•°æ®ï¼š");
+	
+		System.out.println("³õÊ¼Êı¾İ£º");
 		for(int i=0;i<NUM;i++){
 			System.out.print(data[i]+"  ");
 		}
@@ -32,7 +33,7 @@ class search{
 	}
 	
 	
-	//äºŒåˆ†æŸ¥æ‰¾ç®—æ³•
+	//¶ş·Ö²éÕÒËã·¨
 	public void binarySearch(int[] data,int target){
 		int left=0;
 		int right=data.length-1;
@@ -41,7 +42,7 @@ class search{
 		while(left<=right){
 			mid=(right+left)/2;
 			if(data[mid]==target){
-				System.out.print("å­˜åœ¨è¯¥å€¼,ä½ç½®ç´¢å¼•ä¸ºï¼š"+mid);
+				System.out.println("´æÔÚ¸ÃÖµ,Î»ÖÃË÷ÒıÎª£º"+mid);
 				return;
 			}
 			else if(data[mid]<target){
@@ -52,10 +53,10 @@ class search{
 			}
 		}
 		if(data[mid]>target){
-			System.out.print("ä¸å­˜åœ¨è¯¥å€¼ï¼Œç›¸é‚»ä½ç½®ç´¢å¼•ä¸ºï¼š"+(mid-1)+"ã€"+mid);
+			System.out.println("²»´æÔÚ¸ÃÖµ£¬ÏàÁÚÎ»ÖÃË÷ÒıÎª£º"+(mid-1)+"¡¢"+mid);
 		}
 		else if (data[mid]<target) {
-			System.out.print("ä¸å­˜åœ¨è¯¥å€¼ï¼Œç›¸é‚»ä½ç½®ç´¢å¼•ä¸ºï¼š"+mid+"ã€"+(mid+1));
+			System.out.println("²»´æÔÚ¸ÃÖµ£¬ÏàÁÚÎ»ÖÃË÷ÒıÎª£º"+mid+"¡¢"+(mid+1));
 		}
 		
 	}

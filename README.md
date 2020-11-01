@@ -26,3 +26,17 @@
 5.floyd.java
 
 求任意两点之间距离的最小值，并且输出最短路径
+
+
+6.LianCheng.java
+
+求解矩阵连乘最小值
+
+
+7.oBST.java
+
+最优搜索二叉树问题
+
+
+8.selectActivity.java
+利用贪心算法选活动

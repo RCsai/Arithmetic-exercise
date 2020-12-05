@@ -1,39 +1,46 @@
-package ×ÔÑ§±Ê¼Ç;
+package è‡ªå­¦ç¬”è®°;
+/***************
+*å¿«é€Ÿæ’åºç®—æ³•ï¼š
+*1.ç¡®å®šç®—æ³•çš„ä¸»å…ƒå€¼ï¼ˆç¬¬ä¸€å…ƒç´ æˆ–è€…æ•°ç»„ä¸­é—´å€¼ï¼‰
+*2.æ ¹æ®ä¸»å…ƒå€¼æ•°æ®å¯¹æ•°ç»„å…ƒç´ è¿›è¡Œåˆ’åˆ†ï¼Œå…ˆä»å³è¾¹æŸ¥æ‰¾ï¼Œå¤§äºä¸»å…ƒå€¼æ•°æ®æ¢åˆ°å·¦è¾¹ï¼Œå†ä»å³è¾¹è¿›è¡ŒæŸ¥æ‰¾ï¼Œå¤§äºä¸»å…ƒå€¼æ•°æ®æ”¾åœ¨å³è¾¹
+*3.ç¡®å®šä¸»å…ƒå€¼åœ¨æ•°ç»„ä¸­çš„åæ ‡i
+*4.ä¹‹ååˆ†æ²»å¤„ç†a[left,i]å’Œa[i+1,right]
+*************/
 
 import java.util.Arrays;
 
 
 public class quickSort {
 	public static void main(String[] args){	
-		//²âÊÔÓÃÀı
-		//È¡ÖĞ·¨
+		//æµ‹è¯•ç”¨ä¾‹
+		//å–ä¸­æ³•
 		QuZhongFa sort1=new QuZhongFa();
 		sort1.arr=new int[]{12,1,24,35,6,7,68,23,45,69,10,12,34};
 		sort1.quickSort(sort1.arr,0,sort1.arr.length-1);
-		System.out.println("È¡ÖĞ·¨Êä³ö½á¹ûÈçÏÂ£º");
+		System.out.println("å–ä¸­æ³•è¾“å‡ºç»“æœå¦‚ä¸‹ï¼š");
 		System.out.println(Arrays.toString(sort1.arr));
 		
-		//µÚÒ»ÔªËØ
+		//ç¬¬ä¸€å…ƒç´ 
 		FirstElement sort2=new FirstElement();
 		sort2.arr=new int[]{12,1,24,35,6,7,68,23,45,69,10,12,34};
 		sort2.quickSort(sort2.arr,0,sort2.arr.length-1);
-		System.out.println("µÚÒ»ÔªËØÊä³ö½á¹ûÈçÏÂ£º");
+		System.out.println("ç¬¬ä¸€å…ƒç´ è¾“å‡ºç»“æœå¦‚ä¸‹ï¼š");
 		System.out.println(Arrays.toString(sort2.arr));	
 	}
 }
 
-//ÈıÎ»È¡ÖĞ¿ìËÙÅÅĞò
+//ä¸‰ä½å–ä¸­å¿«é€Ÿæ’åº
 
 class QuZhongFa{
 		int[] arr;
-		//½»»»Êı¾İ
+		//äº¤æ¢æ•°æ®
 		public  void swap(int[] arr,int a,int b){
 			int temp=arr[a];
 			arr[a]=arr[b];
 			arr[b]=temp;
 		}
 		
-		//´¦ÀíÊàÅ¦Öµ
+		//å¤„ç†æ¢çº½å€¼
 		public  void dealPivot(int[] arr,int left,int right){
 			int mid=(left+right)/2;
 			if(arr[left]>arr[mid]){
@@ -48,24 +55,24 @@ class QuZhongFa{
 			swap(arr,right-1,mid);
 		}
 		
-		//¸ù¾İÊàÅ¦Öµ½øĞĞ·Ö¸îÅÅĞò
+		//æ ¹æ®æ¢çº½å€¼è¿›è¡Œåˆ†å‰²æ’åº
 		public  void quickSort(int[] arr,int left,int right){
 			if(left<right){
-				//»ñÈ¡ÊàÅ¦Öµ²¢½øĞĞ´¦Àí
+				//è·å–æ¢çº½å€¼å¹¶è¿›è¡Œå¤„ç†
 				dealPivot(arr,left,right);
-				//¼ÇÂ¼ÊàÅ¦ÖµÎ»ÖÃ
+				//è®°å½•æ¢çº½å€¼ä½ç½®
 				int pivot=right-1;
-				//×óÖ¸Õë
+				//å·¦æŒ‡é’ˆ
 				int i=left;
-				//ÓÒÖ¸Õë
+				//å³æŒ‡é’ˆ
 				int j=right-1;
 				
 				while(true){
-					//Ñ°ÕÒ´óÓÚÊàÅ¦ÖµµÄÊı
+					//å¯»æ‰¾å¤§äºæ¢çº½å€¼çš„æ•°
 					while(arr[++i]<arr[pivot]){
 					}
 					
-					//Ñ°ÕÒĞ¡ÓÚÊàÅ¦ÖµÊı¾İ
+					//å¯»æ‰¾å°äºæ¢çº½å€¼æ•°æ®
 					while(j>left&&arr[--j]>arr[pivot]){
 					}
 					
@@ -77,12 +84,12 @@ class QuZhongFa{
 					}
 				}
 				
-				//Ìæ»»ÊàÅ¦Öµ
+				//æ›¿æ¢æ¢çº½å€¼
 				if(i<right){
 					swap(arr,i,pivot);
 				}
 				
-				//µİ¹éÅÅĞò·Ö¸îµÄÁ½¶Î			
+				//é€’å½’æ’åºåˆ†å‰²çš„ä¸¤æ®µ			
 				quickSort(arr,left,i-1);
 				quickSort(arr,i+1,right);
 			}			
@@ -90,38 +97,38 @@ class QuZhongFa{
 }
 
 
-//µÚÒ»ÔªËØ¿ìËÙÅÅĞò
+//ç¬¬ä¸€å…ƒç´ å¿«é€Ÿæ’åº
 class FirstElement{
 	int[] arr;
 	public  void quickSort(int[] arr,int low,int high){
 		if(low<high){
-			//»ñÈ¡·Ö¸îµã
+			//è·å–åˆ†å‰²ç‚¹
 			int k=partitionWithFirst(arr,low,high);
-			//µİ¹é·Ö¸îÓàÏÂ²¿·Ö
+			//é€’å½’åˆ†å‰²ä½™ä¸‹éƒ¨åˆ†
 			quickSort(arr,low,k-1);
 			quickSort(arr,k+1,high);
 		}
 		
 	}
 	
-	//ÕÒµ½Ö÷ÔªÎ»ÖÃ
+	//æ‰¾åˆ°ä¸»å…ƒä½ç½®
 	public  int partitionWithFirst(int[] arr,int low,int high){
 		int k=arr[low];
 		int i=low;
 		int j=high;
 		while(j>i){
-			//--j·´Ïò²éÕÒĞ¡ÓÚkµÄÔªËØ
+			//--jåå‘æŸ¥æ‰¾å°äºkçš„å…ƒç´ 
 			while(j>i&&arr[j]>k){
 				j--;
 			}
-			//ÕÒµ½Ğ¡ÓÚkÖµÖ®ºó½øĞĞÌæ»»
+			//æ‰¾åˆ°å°äºkå€¼ä¹‹åè¿›è¡Œæ›¿æ¢
 			if(i<j){
 				arr[i]=arr[j];
 				i++;
 			}
 			
 			
-			//++i·½Ïò²éÕÒ´óÓÚkµÄÖµ½øĞĞÌæ»»
+			//++iæ–¹å‘æŸ¥æ‰¾å¤§äºkçš„å€¼è¿›è¡Œæ›¿æ¢
 			while(j>i&&arr[i]<k){
 				i++;
 			}
